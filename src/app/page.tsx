@@ -1,69 +1,81 @@
-import Image from "next/image";
+import Scene from "@/components/Scene";
+import BentoGrid from "@/components/BentoGrid";
+import HorizontalGallery from "@/components/HorizontalGallery";
+import Marquee from "@/components/Marquee";
+import ContactTerminal from "@/components/ContactTerminal";
+import Dock from "@/components/Dock";
+import { ArrowDown } from "lucide-react";
+
+import ClientShowcase from "@/components/ClientShowcase";
+
+import HeroHeadline from "@/components/HeroHeadline";
+import ProjectArchiveModal from "@/components/ProjectArchiveModal";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="relative w-full overflow-hidden" id="home">
+      {/* Top Navbar Label */}
+      <div className="absolute top-8 left-8 z-50 mix-blend-difference pointer-events-auto flex items-center justify-between w-[calc(100%-4rem)]">
+        <span className="font-mono text-xs uppercase tracking-widest text-white/50">
+          Ayan Saha <span className="text-cyber-cyan mx-2">//</span> <span className="text-white">Portfolio 2026</span>
+        </span>
+        
+        <div className="flex items-center gap-2 bg-cyber-emerald/10 border border-cyber-emerald/30 text-cyber-emerald px-4 py-2 rounded-full font-mono text-[10px] uppercase tracking-widest backdrop-blur-md shadow-[0_0_15px_rgba(5,255,161,0.25)]">
+          <span className="w-2 h-2 rounded-full bg-cyber-emerald animate-pulse"></span>
+          AVAILABLE FOR FREELANCE BUILDS (Q3-Q4)
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <Scene />
+        <div className="z-10 flex flex-col items-center justify-center mix-blend-difference pointer-events-auto px-6 text-center max-w-2xl mx-auto pb-24 mt-20">
+          
+          <HeroHeadline />
+          
+          <div className="font-mono text-xs sm:text-sm text-zinc-400 tracking-widest uppercase mt-4 mb-8 py-3 px-6 rounded-full bg-black/40 border border-white/5 backdrop-blur-md shadow-2xl">
+            // [ FULL-STACK • CREATIVE CODE • SMART CONTRACTS ]
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-6 mt-4 my-8">
+            <a href="#projects" className="group relative px-8 py-4 bg-[#030305] overflow-hidden rounded-full border border-cyber-cyan/30 hover:border-cyber-cyan transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+              <div className="absolute inset-0 bg-cyber-cyan/5 group-hover:bg-cyber-cyan/10 transition-colors duration-500 ease-in-out"></div>
+              <span className="relative z-10 flex items-center gap-2 font-mono text-sm tracking-widest uppercase text-white/80 group-hover:text-white transition-colors">
+                EXPLORE WORK
+              </span>
+            </a>
+            
+            <a href="#contact" className="group relative px-8 py-4 bg-white text-black rounded-full overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(255,255,255,0.6)] hover:bg-white/90">
+              <div className="absolute inset-0 bg-[linear-gradient(110deg,rgba(0,0,0,0),rgba(255,255,255,0.5),rgba(0,0,0,0))] -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+              <span className="relative z-10 flex items-center gap-2 font-mono text-sm tracking-widest uppercase font-bold">
+                START A PROJECT
+              </span>
+            </a>
+          </div>
         </div>
-      </main>
-    </div>
+
+        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce text-white/30 z-10 font-mono text-xs pointer-events-none">
+          <span>SCROLL TO INITIALIZE</span>
+          <ArrowDown size={16} />
+        </div>
+      </section>
+
+      <div id="radar"><BentoGrid /></div>
+      <div id="projects"><HorizontalGallery /></div>
+      <Marquee />
+      
+      {/* Spacer for 3D Camera Warp Tunnel transition */}
+      <section className="h-[50vh] w-full bg-transparent flex items-center justify-center relative z-10 pointer-events-none">
+        <div className="text-center">
+          <span className="font-mono text-cyber-cyan tracking-widest text-sm uppercase block mb-4">Entering the Lab</span>
+          <h2 className="text-4xl md:text-6xl font-bold uppercase text-white/10">Experimental</h2>
+        </div>
+      </section>
+
+      <ClientShowcase />
+      <div id="contact"><ContactTerminal /></div>
+      
+      <Dock />
+      <ProjectArchiveModal />
+    </main>
   );
 }
